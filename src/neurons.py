@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 def sigmoid (x): return 1./(1 + np.exp(-x))
 
 class Neurons():
-    def __init__(self, nHidden = 64):
+    def __init__(self, nHidden = 200):
         """
         Constructor of the Neurons class
 
@@ -25,12 +25,12 @@ class Neurons():
           - 1 output neuron
         """
         self.nHidden = nHidden
-        self.nInputs = 32
+        self.nInputs = 50
         self.outputLayerSize = 1
         self.Wh = np.random.uniform(-1., 1., size=(self.nInputs, nHidden))
-        self.hBias = np.random.random_integers(-10, 10, nHidden)
+        self.hBias = np.random.random_integers(-1, 1, nHidden)
         self.Wz = np.random.uniform(-1., 1., size=(nHidden, self.outputLayerSize))
-        self.zBias = np.random.random_integers(-10, 10, self.outputLayerSize)
+        self.zBias = np.random.random_integers(-1, 1, self.outputLayerSize)
 
     def evaluate(self, X):
         """
